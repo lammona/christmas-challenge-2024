@@ -34,13 +34,13 @@ Brief list of topicks covered:
 
 Tickets:
 UI
-T1: Create Main Page
-    - index.html
-    - scripts.js
-    - styles.css
+T1: Create Main Page and link the following
+    - index.html✅
+    - script.js✅
+    - style.css✅
 create title and 2 buttons: 
-button1- recipe
-button2- my favourites
+button1- recipe ✅
+button2- my favourites✅
 
 T2: Recipe section(when button1 is clicked)
 -when clicked on button "recipe" title, list of ingriedients, instructions and picture will appear
