@@ -43,8 +43,8 @@ button1- recipe ✅
 button2- my favourites✅
 
 T2: Recipe section(when button1 is clicked)
--when clicked on button "recipe" title, list of ingriedients, instructions and picture will appear
--button3- ❤️ favourite
+-when clicked on button "recipe" title✅, list of ingriedients✅, instructions✅ and picture will appear✅
+-button3- ❤️ favourite ✅
 
 T3: Favourites section (when button2 is clicked)
 -show list of favourites recipes
