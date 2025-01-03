@@ -55,7 +55,9 @@ T4:
 functionality -> js
 
 
-SERVER
+
+
+
 
 Website:
 Create simple welcome website: "Kids favourite meals"
@@ -113,7 +115,14 @@ files to be made:
 
 
 
+SERVER
 
+ // create RESTful API Server
+  //database info downloaded in json format
+  //create js, json, gitignore instal in vscode
+  //npm install express
+  // api endpoints to check on postman
+  // helper functions - ?
 
 create REST API server
     technical requirements:
