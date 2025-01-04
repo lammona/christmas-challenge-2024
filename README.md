@@ -48,8 +48,9 @@ T2: Recipe section(when button1 is clicked)✅ - WORKS!!!!!!!🔥
 
 T3: Favourites section (when button2 is clicked)
 -show list of favourites recipes✅
-button4- name of favourite recipe- when clicked on "button4" title, list of ingriedients, instructions and picture will appear, 
-button5-❌ delete from favourites button (next to the title)
+
+button4- name of favourite recipe in the list ✅- when clicked on "button4" title, list of ingriedients, instructions and picture will appear, 
+button5-"delete from favourites" delete from favourites button (next to the title) ✅
 
 T4:
 functionality -> js

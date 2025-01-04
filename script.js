@@ -13,10 +13,7 @@ recipes.addEventListener("click", displayOneRecipe);
 const myFavourites = document.getElementById("favourites");
 myFavourites.addEventListener("click", displayFavourites);
 
-
 let randomRecipe = null;
-
-
 
 //create display one recipe function
 // fetch data from fetchData function() and save it in singleRecipe variable
@@ -33,6 +30,7 @@ async function displayOneRecipe(){
     const data = await fetchData();
     console.log(data.recipes[0].id)
     randomRecipe = data.recipes[0];
+    updateFavouritesButtonText();
 
     //display title
     const title = document.getElementById("title");
@@ -64,24 +62,72 @@ async function displayOneRecipe(){
 
     }      
 
-    const listFavourites =[];
+    let listFavourites =[];
 
     const favourites = document.getElementById("updateFavourite");
     favourites.addEventListener("click", updateFavourites);
     //create new function updateFav to update array list of favourites
     //create empty arr listFavourites which will be updated when button "updateFavourites" will be clicked
 
+
+//'update favourites' button to change when clicked to delete from favouries
+// if randomRecipe is not null && is in favourites change "update button" writing to "delete from favourites"
+
     function updateFavourites(){
-        if (randomRecipe === null){
+       if (randomRecipe === null){
             return;
         }else if (isInFavourites()){
-            return;
+            deleteFromFavourites();
         }else{
             listFavourites.push(randomRecipe); 
            // displayFavourites();
         }
+        updateFavouritesButtonText()
     }
    
+   
+        // //crrate condition to change text of the button:
+        // let updateFavText = document.getElementById("updateFavourite")
+        // updateFavText.addEventListener("click", function)
+        // let deleteFavText = document.getElementById("Delete from Favourites");
+        // deleteFavText.addEventListener("click", function) 
+       
+    function updateFavouritesButtonText(){    
+        const updateFavourite = document.getElementById("updateFavourite");
+        if (isInFavourites()){
+            updateFavourite.textContent = "Delete from Favourites";
+               } else {
+                updateFavourite.textContent = "Update Favourites";
+               }
+        //updateFavourite clicked, change text to "delete form favourites"
+        //else, if delete from favourites, change text to "updatFavourite"
+    }
+
+    function deleteFromFavourites(){
+        
+        listFavourites = listFavourites.filter(recipe => recipe.id !== randomRecipe.id);
+        //const deleteRecipe = document.getElementById("updateFavourite");
+        //deleteRecipe.textContent = "Delete from Favourites";
+       
+    }
+
+
+// // const people = [
+//     { id: 1, name: "Alice" },
+//     { id: 2, name: "Bob" },
+//     { id: 3, name: "Charlie" }
+// ];
+
+// const idToRemove = 2;
+
+// const updatedPeople = people.filter(person => person.id !== idToRemove);
+
+// console.log(updatedPeople);
+// // Output: 
+// // [{ id: 1, name: "Alice" }, { id: 3, name: "Charlie" }]
+
+
+
     function isInFavourites(){
         for (let i = 0; i < listFavourites.length; i++ ){
             if(listFavourites[i].id === randomRecipe.id){
