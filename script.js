@@ -9,11 +9,27 @@ const apiKey = "c5913eaac9ab46d8816d5024addb348a";
 
 const recipes = document.getElementById("recipe");
 recipes.addEventListener("click", displayOneRecipe);
+
+const myFavourites = document.getElementById("favourites");
+myFavourites.addEventListener("click", displayFavourites);
+
+
 let randomRecipe = null;
+
+
 
 //create display one recipe function
 // fetch data from fetchData function() and save it in singleRecipe variable
 async function displayOneRecipe(){
+
+    //show recepie section
+    const recipeSection = document.getElementById("recipeSection");
+    recipeSection.style.display = "block";
+
+    //hide myfavourites section
+    const myFavourites = document.getElementById("myFavouritesSection");
+    myFavourites.style.display = "none";
+
     const data = await fetchData();
     console.log(data.recipes[0].id)
     randomRecipe = data.recipes[0];
@@ -62,7 +78,7 @@ async function displayOneRecipe(){
             return;
         }else{
             listFavourites.push(randomRecipe); 
-            displayFavourites();
+           // displayFavourites();
         }
     }
    
@@ -76,11 +92,21 @@ async function displayOneRecipe(){
     }
   
     function displayFavourites(){
-        const favouritesDisplay = document.getElementById("favouritesDisplay");
+        const recipeSection = document.getElementById("recipeSection")
+        recipeSection.style.display = "none";
 
+        const myFavouritesSection = document.getElementById("myFavouritesSection")
+        myFavouritesSection.style.display = "block";
+
+
+
+        const favouritesDisplay = document.getElementById("favouritesDisplay");
+        favouritesDisplay.replaceChildren();
         for (let i = 0; i < listFavourites.length; i++){
+            
             const li = document.createElement("li");
             li.textContent = listFavourites[i].title;
+           
             favouritesDisplay.appendChild(li);
         }
     }

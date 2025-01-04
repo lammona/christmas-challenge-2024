@@ -5,3 +5,11 @@
 button {
     color: purple;
 }
+
+#recipeSection {
+    display: none;
+}
+
+#myFavouritesSection {
+    display: none;
+}
