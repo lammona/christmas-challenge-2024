@@ -5,31 +5,9 @@ I am creating a project where I will train all the skills while learning on Scho
 
 I want to create a site to showcase what I’ve learned so far and provide a space to practice and develop new skills. I have completed 4 weeks of the School of Code Intensive Bootcamp—8 more to go! 😎
 
-Idea: Create Kids favourite recipes!
+Idea: Create website with favourite recipes!
 
 
-Brief list of topicks covered: 
-* Learning how to learn
-* VSCode
-* Git
-* GitHub
-* JavaScript Fundamentals
-* Variables
-* Loops
-* Objects
-* Arrays
-* Functions
-* The DOM
-* Events
-* Fetch
-* Postman
-* Tapping into APIs
-* Creating APIs
-* Servers
-* NodeJS
-* Express
-* HTTP Methods
-* REST
 
 
 Tickets:
@@ -137,9 +115,42 @@ create REST API server
 
 
 
+//Common CSS Properties for Images
+Here are some common properties you might use:
+
+width & height: Control the dimensions.
+border: Add borders (solid, dashed, dotted, etc.).
+border-radius: Create rounded corners.
+box-shadow: Add shadows.
+filter: Apply effects like grayscale or blur.
+css
+Copy code
 
 
 
 
 
 
+
+Brief list of topicks covered so far:
+* Learning how to learn
+* VSCode
+* Git
+* GitHub
+* JavaScript Fundamentals
+* Variables
+* Loops
+* Objects
+* Arrays
+* Functions
+* The DOM
+* Events
+* Fetch
+* Postman
+* Tapping into APIs
+* Creating APIs
+* Servers
+* NodeJS
+* Express
+* HTTP Methods
+* REST

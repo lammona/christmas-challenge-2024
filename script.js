@@ -1,4 +1,3 @@
-console.log("hello");
 
 // Recipe section(when recipe button is clicked)
 // we need to listen to even listner "click"
@@ -52,9 +51,6 @@ async function displayOneRecipe(){
 //     li.textContent = ingredient; // Set the text of the list item
 //     ingredientsList.appendChild(li); // Append the list item to the ingredients list
 // }
-
-    // //display list of instructions - there arent any instructions provided in api
-    // const instructionsList = document.getElementById("instructionsList");
 
         //display image
         const image = document.getElementById("recipePicture");

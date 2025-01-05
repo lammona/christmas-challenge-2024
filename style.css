@@ -13,3 +13,11 @@ button {
 #myFavouritesSection {
     display: none;
 }
+
+
+.recipePicture {
+    width: 500;
+    height: 500;
+    ;
+    
+}
