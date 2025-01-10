@@ -6,18 +6,24 @@ button {
     color: purple;
 }
 
-#recipeSection {
+.hidden {
     display: none;
 }
 
-#myFavouritesSection {
-    display: none;
+.visible {
+    display: block;
+}
+
+.border-important {
+    border: 5px solid red;
+    background-color: aqua;
+    font-weight: bold;
 }
 
 
 .recipePicture {
-    width: 500;
-    height: 500;
+    width: 500px;
+    height: 500px;
     ;
     
 }
