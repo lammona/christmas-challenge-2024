@@ -1,16 +1,20 @@
+import 'dotenv/config';
 
 // Recipe section(when recipe button is clicked)
 // we need to listen to even listner "click"
 // when clicked we need to display the recipe title, list of ingriedients, instructions and picture
 // create function called displayOneReipe,that will take event listner and fetch data function
 // -button3- ❤️ favourite
-const apiKey = "c5913eaac9ab46d8816d5024addb348a";
+const apiKey = process.env.API_KEY;
 
 const recipes = document.getElementById("recipe");
 recipes.addEventListener("click", displayOneRecipe);
 
 const myFavourites = document.getElementById("favourites");
 myFavourites.addEventListener("click", displayFavourites);
+
+const recipeSection = document.getElementById("recipeSection");
+const myFavourites = document.getElementById("myFavouritesSection");
 
 let randomRecipe = null;
 
@@ -19,18 +23,42 @@ let randomRecipe = null;
 async function displayOneRecipe(){
 
     //show recepie section
-    const recipeSection = document.getElementById("recipeSection");
-    recipeSection.style.display = "block";
+    switchToRecipeSection();
 
-    //hide myfavourites section
-    const myFavourites = document.getElementById("myFavouritesSection");
-    myFavourites.style.display = "none";
-
-    const data = await fetchData();
-    console.log(data.recipes[0].id)
-    randomRecipe = data.recipes[0];
+    randomRecipe = await getRecipe();
     updateFavouritesButtonText();
 
+    addRecipeToPage(randomRecipe);
+}
+
+    let listFavourites =[];
+
+    const favourites = document.getElementById("updateFavourite");
+    favourites.addEventListener("click", updateFavourites);
+    //create new function updateFav to update array list of favourites
+    //create empty arr listFavourites which will be updated when button "updateFavourites" will be clicked
+
+
+//'update favourites' button to change when clicked to delete from favouries
+// if randomRecipe is not null && is in favourites change "update button" writing to "delete from favourites"
+function switchToRecipeSection() {
+    //show recepie section
+    // const recipeSection = document.getElementById("recipeSection");
+    recipeSection.classList.add('visible', 'border-important');
+
+
+    //hide myfavourites section
+    // const myFavourites = document.getElementById("myFavouritesSection");
+    myFavourites.style.display = "none";
+}
+
+async function getRecipe() {
+    const data = await fetchData();
+    console.log(data.recipes[0].id)
+    return data.recipes[0];
+}
+
+function addRecipeToPage(randomRecipe) {
     //display title
     const title = document.getElementById("title");
     title.textContent =  randomRecipe.title
@@ -52,23 +80,10 @@ async function displayOneRecipe(){
 //     ingredientsList.appendChild(li); // Append the list item to the ingredients list
 // }
 
-        //display image
-        const image = document.getElementById("recipePicture");
-        image.src =  randomRecipe.image
-
-    }      
-
-    let listFavourites =[];
-
-    const favourites = document.getElementById("updateFavourite");
-    favourites.addEventListener("click", updateFavourites);
-    //create new function updateFav to update array list of favourites
-    //create empty arr listFavourites which will be updated when button "updateFavourites" will be clicked
-
-
-//'update favourites' button to change when clicked to delete from favouries
-// if randomRecipe is not null && is in favourites change "update button" writing to "delete from favourites"
-
+    //display image
+    const image = document.getElementById("recipePicture");
+    image.src =  randomRecipe.image
+}
     function updateFavourites(){
        if (randomRecipe === null){
             return;
@@ -125,19 +140,21 @@ async function displayOneRecipe(){
 
 
     function isInFavourites(){
-        for (let i = 0; i < listFavourites.length; i++ ){
-            if(listFavourites[i].id === randomRecipe.id){
-                return true;
-            }
-        }
-        return false;
+        return listFavourites.some(favourite => favourite.id === randomRecipe.id);
+
+        // for (let i = 0; i < listFavourites.length; i++ ){
+        //     if(listFavourites[i].id === randomRecipe.id){
+        //         return true;
+        //     }
+        // }
+        // return false;
     }
   
     function displayFavourites(){
-        const recipeSection = document.getElementById("recipeSection")
+        // const recipeSection = document.getElementById("recipeSection")
         recipeSection.style.display = "none";
 
-        const myFavouritesSection = document.getElementById("myFavouritesSection")
+        // const myFavouritesSection = document.getElementById("myFavouritesSection")
         myFavouritesSection.style.display = "block";
 
 
